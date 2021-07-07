@@ -1,16 +1,26 @@
 $(() => {
-
+//this api pulls 20 results at a time with index 0 - 19 i need to iterate through those
+let currentGame = 0
 
 $.ajax({
 	url: "https://api.rawg.io/api/games?key=a0c636dde4744ca38404b9b629eb23d0&genres=indie",
   type: "GET",
-  limit: null
-  // results: {
-  //   name: "Portal 2"
-  // }
+
 }).then((data) => {
+
+for (let i = 0; i < data.results.length; i++) {
+  $("<img>").attr("src", data.results[i].background_image).appendTo(".games")
+}
+
+// $("<img>").attr("src", data.results[currentGame].background_image).appendTo(".games");
+// $(".next").on("click", () => {
+//   currentGame++
+//   $("<img>").attr("src", data.results[currentGame].background_image).appendTo(".games");
+// })
+
+
   console.log(data);
-  //$("<img>").attr("src", data.results[0].background_image).appendTo(".images");
+
   // console.log(results.results[0].name);
 });
 
