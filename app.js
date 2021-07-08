@@ -10,6 +10,8 @@ $.ajax({
 
   const openModal = () => {
     $("#modal").css("display", "block")
+    const index = $(event.currentTarget).attr("index")
+    $("<h4>").text(data.results[index].name).appendTo("#modalbox")
   }
 
   for (let i = 0; i < data.results.length; i++) {
@@ -18,15 +20,21 @@ $.ajax({
     { "background-color": "black",
       "margin": "2px",
       "border-radius": "5px",
-    }).click(openModal)
+    }).attr("index", i).click(openModal)
     $("<img>").attr("src", data.results[i].background_image)//.addClass("image" + i)
     .appendTo(".card" + i)
     $("<h4>").text(data.results[i].name).addClass(".cardtext").appendTo(".card" + i)
     //$("<div>").addClass("title").appendTo(".games")
     // $("<div>").text("Game Title").addClass("titletext").appendTo("img")
+    //$("<h4>").text(data.results[i].name.appendTo("#modalbox"))
+    // $(".card" + i).on("click", (event) => {
+    //   console.log(data.results.indexOf(event.currentTarget));
+    // })
+
 }
 
-
+ //$("<h4>").text(data.results[i].name.appendTo("#modalbox"))
+console.log(data);
 
 // $("<img>").attr("src", data.results[currentGame].background_image).appendTo(".games");
 // $(".next").on("click", () => {
@@ -34,8 +42,8 @@ $.ajax({
 //   $("<img>").attr("src", data.results[currentGame].background_image).appendTo(".games");
 // })
 
+//console.log(data);
 
-  console.log(data);
 
   // console.log(results.results[0].name);
 });
