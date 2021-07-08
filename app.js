@@ -11,7 +11,11 @@ $.ajax({
   const openModal = () => {
     $("#modal").css("display", "block")
     const index = $(event.currentTarget).attr("index")
-    $("<h4>").text(data.results[index].name).appendTo("#modalbox")
+    $("<h1>").text(data.results[index].name).appendTo(".title")
+    $(".rating").text("Average Rating: " + data.results[index].metacritic)
+    $(".release").text("Release Date: " + data.results[index].released)
+    //had to multiply playtime by 5 because their data for that was WAY under average playtime
+    $(".playtime").text("How Long to Beat: " + data.results[index].playtime * 5 + " hours")
   }
 
   for (let i = 0; i < data.results.length; i++) {
