@@ -2,6 +2,18 @@ body{
   text-align: center;
 }
 
+#modal{
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  overflow: auto;
+  display: none;
+}
+
 .main{
   display: flex;
   justify-content: center;
@@ -13,16 +25,23 @@ body{
   justify-content: center;
 }
 
-/* .card{
-  flex-wrap: wrap;
-  flex-direction: column;
-} */
+h4{
+  background-color: black;
+  color: white;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+.card{
+  background-color: black;
+}
 
 img{
   width: 200px;
   height: 150px;
-  margin: 5px;
-  border-radius: 5px;
+  margin: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   position: relative;
 }
 
