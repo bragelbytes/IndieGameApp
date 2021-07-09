@@ -7,7 +7,7 @@ body{
 }
 
 h1{
-  font-family: 'Khula', sans-serif;;
+  font-family: 'Khula', sans-serif;
   font-size: 70px;
   color: black;
   border: black;
@@ -90,7 +90,7 @@ li{
 }
 
 h4{
-  /* background-color: rgba(1, 1, 1, .2); */
+  font-size: 12px;
   color: white;
   margin-top: 6px;
   margin-bottom: 10px;
@@ -135,13 +135,20 @@ img{
     align-content: center;
   }
   body > h1{
-    width: 100%;
+    width: 95%;
+    margin: 15px auto;
   }
   .cardbox{
     width: 45%
   }
   .games{
-    margin-left: 5%;
+    /* margin-left: 2%; */
+  }
+  h4{
+    font-size: 25px;
+  }
+  #modalbox{
+    font-size: 30px;
   }
   img{
     width: 100%;
