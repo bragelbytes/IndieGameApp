@@ -2,6 +2,8 @@ body{
   text-align: center;
   background-color: #26211a;
   background-size: cover;
+  margin: 0px;
+  padding: 0px;
 }
 
 h1{
@@ -57,7 +59,8 @@ ul{
   border-radius: 10px;
   margin: 0 auto;
   padding: 50px;
-  margin-top: 230px;
+  margin-top: 150px;
+  margin-bottom: 150px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -113,11 +116,12 @@ img{
   display: none;
 } */
 
-@media screen and (max-width: 480px){
+@media (max-width: 745px){
   body{
     background-color: #424242;
-    width: 500px;
+    width: 650px;
     height: auto;
+    padding: 5px;
   }
 
 }
