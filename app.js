@@ -42,10 +42,10 @@ $.ajax({
   }
 
   for (let i = 0; i < data.results.length; i++) {
-    $("<div>").addClass("card" + i).appendTo(".games")
+    $("<div>").addClass("card" + i).addClass("cardbox").appendTo(".games")
     .css( //style for the cards
-    { "background-color": "black",
-      "margin": "2px",
+    { "background-color": "rgba(1, 1, 1, .95)",
+      "margin": "5px",
       "border-radius": "5px",
     }).attr("index", i).click(openModal)
     $("<img>").attr("src", data.results[i].background_image)//.addClass("image" + i)
