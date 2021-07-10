@@ -1,9 +1,10 @@
 $(() => {
 //this api pulls 20 results at a time with index 0 - 19 i need to iterate through those
 let currentGame = 0
+let currentPage = 1
 
 $.ajax({
-	url: "https://api.rawg.io/api/games?key=a0c636dde4744ca38404b9b629eb23d0&genres=indie",
+	url: "https://api.rawg.io/api/games?genres=indie&key=a0c636dde4744ca38404b9b629eb23d0&page=" + currentPage,
   type: "GET",
 
 }).then((data) => {
@@ -47,7 +48,18 @@ $.ajax({
     { "background-color": "rgba(1, 1, 1, .95)",
       "margin": "5px",
       "border-radius": "5px",
-    }).attr("index", i).click(openModal)
+    }).attr("index", i)
+    .hover(function(){
+      $(this).css({"background-color": "#62a187",
+                  "transform": "translate(8px, 5px)",
+                  "box-shadow": "none",
+                  "cursor": "pointer"});
+    }, function(){
+      $(this).css({"background-color": "black",
+                   "transform": "none",
+                   "box-shadow": "10px 5px 5px rgba(1, 1, 1, .80)",
+                   "cursor": "default"});
+    }).click(openModal)
     $("<img>").attr("src", data.results[i].background_image)//.addClass("image" + i)
     .appendTo(".card" + i)
     $("<h4>").text(data.results[i].name).addClass(".cardtext").appendTo(".card" + i)
