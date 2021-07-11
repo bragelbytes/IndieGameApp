@@ -2,13 +2,13 @@ $(() => {
 //this api pulls 20 results at a time with index 0 - 19 i need to iterate through those
 let currentGame = 0
 let currentPage = 1
-
+//want to implement a sticky nav hence why I made a currentPage variable
 $.ajax({
 	url: "https://api.rawg.io/api/games?genres=indie&key=a0c636dde4744ca38404b9b629eb23d0&page=" + currentPage,
   type: "GET",
 
 }).then((data) => {
-
+//modal starts by emptying previous modal then fills in with data and styling
   const openModal = () => {
     $(".title").empty()
     $(".genres").empty()
@@ -17,7 +17,6 @@ $.ajax({
     $("#modal").css("display", "block")
     const index = $(event.currentTarget).attr("index")
     $("<h1>").text(data.results[index].name).appendTo(".title")
-    //$(".genres").text("Genres: " + data.results[index].genres)
     $(".rating").text("Average Rating: " + data.results[index].metacritic)
     $(".release").text("Release Date: " + data.results[index].released)
     //had to multiply playtime by 5 because their data for that was WAY under average playtime
@@ -37,7 +36,7 @@ $.ajax({
     }
     $(".platforms").prepend("Platforms: ")
   }
-
+//to make the modal close upon being clicked when this is called
   const closeModal = () => {
     $("#modal").css("display", "none")
   }
@@ -49,7 +48,7 @@ $.ajax({
       "margin": "5px",
       "border-radius": "5px",
     }).attr("index", i)
-    .hover(function(){
+    .hover(function(){ //nice hover function to give the cards more personality
       $(this).css({"background-color": "#62a187",
                   "transform": "translate(8px, 5px)",
                   "box-shadow": "none",
@@ -60,33 +59,16 @@ $.ajax({
                    "box-shadow": "10px 5px 5px rgba(1, 1, 1, .80)",
                    "cursor": "default"});
     }).click(openModal)
-    $("<img>").attr("src", data.results[i].background_image)//.addClass("image" + i)
+    $("<img>").attr("src", data.results[i].background_image)
     .appendTo(".card" + i)
     $("<h4>").text(data.results[i].name).addClass(".cardtext").appendTo(".card" + i)
-    //$("<div>").addClass("title").appendTo(".games")
-    // $("<div>").text("Game Title").addClass("titletext").appendTo("img")
-    //$("<h4>").text(data.results[i].name.appendTo("#modalbox"))
-    // $(".card" + i).on("click", (event) => {
-    //   console.log(data.results.indexOf(event.currentTarget));
-    // })
-
 
 }
   $("#modal").click(closeModal)
- //$("<h4>").text(data.results[i].name.appendTo("#modalbox"))
 console.log(data);
 
-// $("<img>").attr("src", data.results[currentGame].background_image).appendTo(".games");
-// $(".next").on("click", () => {
-//   currentGame++
-//   $("<img>").attr("src", data.results[currentGame].background_image).appendTo(".games");
-// })
-
-//console.log(data);
-
-
-  // console.log(results.results[0].name);
 });
 
 })
+//API key:
 //a0c636dde4744ca38404b9b629eb23d0

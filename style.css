@@ -87,6 +87,7 @@ li{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 h4{
@@ -116,12 +117,22 @@ img{
   position: relative;
 }
 
-/* .titletext{
-  position: relative;
+/* .nav{
+  overflow: hidden;
+  background-color: black;
+  position: fixed;
   bottom: 0;
-  left: 0;
-  display: none;
+  width: 100%
+}
+
+.nav a{
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
 } */
+
 
 @media (max-width: 745px){
   body{
