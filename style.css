@@ -117,21 +117,24 @@ img{
   position: relative;
 }
 
-/* .nav{
+.nav{
+  display: flex;
   overflow: hidden;
-  background-color: black;
+  background-color: rgba(1, 1, 1, .60);
   position: fixed;
   bottom: 0;
-  width: 100%
+  width: 100%;
 }
 
-.nav a{
+.nav p{
   display: inline-block;
   color: white;
   text-align: center;
   padding: 5px;
   text-decoration: none;
-} */
+  margin: 0 auto;
+  cursor: pointer;
+}
 
 
 @media (max-width: 745px){
