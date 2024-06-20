@@ -23,20 +23,27 @@ const loadPage = () => {
       $("<h1>").text(data.results[index].name).appendTo(".title")
       $(".rating").text("Average Rating: " + data.results[index].metacritic)
       $(".release").text("Release Date: " + data.results[index].released)
-      //had to multiply playtime by 5 because their data for that was WAY under average playtime
+      //had to multiply playtime by 5 because the data provided was under the average playtime.
       $(".playtime").text("How Long to Beat: " + data.results[index].playtime * 5 + " hours")
-      //genres loop
+
+      //genres
       for (let i = 0; i < data.results[index].genres.length; i++) {
         $(".genres").append(data.results[index].genres[i].name + " ")
       }
       $(".genres").prepend("Genres: ")
+
       //screenshots
       $(".screenshots").append($(`<img src="${data.results[index].short_screenshots[1].image}" />`))
       $(".screenshots").append($(`<img src="${data.results[index].short_screenshots[2].image}" />`))
       $(".screenshots").append($(`<img src="${data.results[index].short_screenshots[3].image}" />`))
-      //platforms loop
-      for (let i = 0; i < data.results[index].platforms.length; i++) {
-        $(".platforms").append(data.results[index].platforms[i].platform.name + " ")
+
+      //platforms
+      let platforms = data.results[index].platforms
+      for (let i = 0; i < platforms.length; i++) {
+        $(".platforms").append(data.results[index].platforms[i].platform.name)
+        if (i !== platforms.length - 1) {
+          $(".platforms").append(" | ")
+        }
       }
       $(".platforms").prepend("Platforms: ")
     }
