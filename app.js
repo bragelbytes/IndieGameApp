@@ -1,16 +1,11 @@
 $(() => {
-//this api pulls 20 results at a time with index 0 - 19 i need to iterate through those
-let currentGame = 0
 let currentPage = 1
 
 const loadPage = () => {
 
-  //want to implement a sticky nav hence why I made a currentPage variable
   $.ajax({
-
   	url: "https://api.rawg.io/api/games?genres=indie&key=a0c636dde4744ca38404b9b629eb23d0&page=" + currentPage,
     type: "GET",
-
   }).then((data) => {
   //modal starts by emptying previous modal then fills in with data and styling
     const openModal = () => {
@@ -23,7 +18,6 @@ const loadPage = () => {
       $("<h1>").text(data.results[index].name).appendTo(".title")
       $(".rating").text("Average Rating: " + data.results[index].metacritic)
       $(".release").text("Release Date: " + data.results[index].released)
-      //had to multiply playtime by 5 because the data provided was under the average playtime.
       $(".playtime").text("How Long to Beat: " + data.results[index].playtime * 5 + " hours")
 
       //genres
@@ -47,19 +41,19 @@ const loadPage = () => {
       }
       $(".platforms").prepend("Platforms: ")
     }
-  //to make the modal close upon being clicked when this is called
+
     const closeModal = () => {
       $("#modal").css("display", "none")
     }
 
     for (let i = 0; i < data.results.length; i++) {
     const $makeCard = $("<div>").addClass("card" + i).addClass("cardbox").appendTo(".games")
-      .css( //style for the cards
+      .css( 
       { "background-color": "rgba(1, 1, 1, .95)",
         "margin": "5px",
         "border-radius": "5px",
       }).attr("index", i)
-      .hover(function(){ //nice hover function to give the cards more personality
+      .hover(function(){ 
         $(this).css({"background-color": "#62a187",
                     "transform": "translate(8px, 5px)",
                     "box-shadow": "none",
@@ -76,7 +70,6 @@ const loadPage = () => {
 
     }
     $("#modal").click(closeModal)
-    // console.log(data);
   });
 }
 loadPage()
@@ -104,5 +97,3 @@ $("#previous").on("click", () => {
 })
 
 })
-//API key:
-//a0c636dde4744ca38404b9b629eb23d0

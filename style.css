@@ -23,7 +23,6 @@ ul{
 #modal{
   display: flex;
   justify-content: center;
-  /* background-color: black; */
   position: fixed;
   top: 0;
   left: 0;
@@ -32,7 +31,6 @@ ul{
   z-index: 1;
   overflow: auto;
   display: none;
-  /* opacity: 0.92; */
   align-items: center;
   align-content: center;
 }
@@ -57,7 +55,6 @@ ul{
   align-items: center;
   color: white;
   background-color: rgba(1, 1, 1, .92);
-  /* height: 90%; */
   width: 65%;
   border-radius: 10px;
   margin: 0 auto;
@@ -101,7 +98,6 @@ h4{
   background-color: rgba(1, 1, 1, .80);
   box-shadow: 10px 5px 5px rgba(1, 1, 1, .80);
   margin: 5px;
-  /* opacity: 0.8; */
 }
 
 .cardtext > h4{
@@ -136,7 +132,6 @@ img{
   cursor: pointer;
 }
 
-
 @media (max-width: 745px){
   body{
     display: flex;
@@ -148,22 +143,24 @@ img{
     padding: 5px;
     align-content: center;
   }
+
   body > h1{
     width: 95%;
     margin: 15px auto;
   }
+
   .cardbox{
     width: 45%
   }
-  .games{
-    /* margin-left: 2%; */
-  }
+  
   h4{
     font-size: 25px;
   }
+
   #modalbox{
     font-size: 30px;
   }
+  
   img{
     width: 100%;
     height: 70%;
