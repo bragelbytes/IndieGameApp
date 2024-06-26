@@ -72,28 +72,29 @@ const loadPage = () => {
     $("#modal").click(closeModal)
   });
 }
-loadPage()
 
-$("#home").on("click", () => {
-  $(".cardbox").remove()
-  currentPage = 1
   loadPage()
-})
 
-$("#next").on("click", () => {
-  $(".cardbox").remove()
-  if(currentPage <= 100){
-    currentPage++
-  }
-  loadPage()
-})
+  $("#home").on("click", () => {
+    $(".cardbox").remove()
+    currentPage = 1
+    loadPage()
+  })
 
-$("#previous").on("click", () => {
-  $(".cardbox").remove()
-  if(currentPage > 1){
-    currentPage--
-  }
-  loadPage()
-})
+  $("#next").on("click", () => {
+    $(".cardbox").remove()
+    if(currentPage <= 100){
+      currentPage++
+    }
+    loadPage()
+  })
+
+  $("#previous").on("click", () => {
+    $(".cardbox").remove()
+    if(currentPage > 1){
+      currentPage--
+    }
+    loadPage()
+  })
 
 })
