@@ -1,5 +1,5 @@
 $(() => {
-let currentPage = 1
+let currentPage = 1;
 
 const loadPage = () => {
 
@@ -78,6 +78,12 @@ const loadPage = () => {
   $("#home").on("click", () => {
     $(".cardbox").remove()
     currentPage = 1
+    loadPage()
+  })
+
+  $("#random").on("click", () => {
+    $(".cardbox").remove()
+    currentPage = Math.floor(Math.random() * 101) + 1;
     loadPage()
   })
 
